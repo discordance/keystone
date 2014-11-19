@@ -7,30 +7,30 @@
 			label= field.label
 				a(href=js).field-label-companion.btn-show-extras (show more fields)
 			.row.extras
-				.col-sm-3.col-md-2: label.text-muted PO Box / Shop
+				.col-sm-3.col-md-2: label.text-muted Boîte Postale
 				.col-sm-3.col-md-2: input(type='text', name=field.paths.number, value=item.get(field.paths.number)).form-control
 			.row.extras
-				.col-sm-3.col-md-2: label.text-muted Building Name
+				.col-sm-3.col-md-2: label.text-muted Bâtiment
 				.col-sm-9.col-md-5: input(type='text', name=field.paths.name, value=item.get(field.paths.name)).form-control
 			.row
-				.col-sm-3.col-md-2: label.text-muted Street Address
+				.col-sm-3.col-md-2: label.text-muted  Adresse 1
 				.col-sm-9.col-md-5: input(type='text', name=field.paths.street1, value=item.get(field.paths.street1)).form-control
 			.row.extras
-				.col-sm-3.col-md-2: label.text-muted Street Address 2
+				.col-sm-3.col-md-2: label.text-muted Adresse 2
 				.col-sm-9.col-md-5: input(type='text', name=field.paths.street2, value=item.get(field.paths.street2)).form-control
 			.row
-				.col-sm-3.col-md-2: label.text-muted Suburb
+				.col-sm-3.col-md-2: label.text-muted Ville
 				.col-sm-9.col-md-5: input(type='text', name=field.paths.suburb, value=item.get(field.paths.suburb)).form-control
 			.row
-				.col-sm-3.col-md-2: label.text-muted State
+				.col-sm-3.col-md-2: label.text-muted Région
 				.col-sm-3.col-md-2: input(type='text', name=field.paths.state, value=item.get(field.paths.state)).form-control
 				.col-sm-2.col-md-1.field-postcode: label.text-muted Postcode
 				.col-sm-3.col-md-2: input(type='text', name=field.paths.postcode, value=item.get(field.paths.postcode)).form-control
 			.row
-				.col-sm-3.col-md-2: label.text-muted Country
+				.col-sm-3.col-md-2: label.text-muted Pays
 				.col-sm-9.col-md-5: input(type='text', name=field.paths.country, value=item.get(field.paths.country)).form-control
 			.row.extras
-				.col-sm-3.col-md-2: label.text-muted Lng/Lat
+				.col-sm-3.col-md-2: label.text-muted Coordonnées GPS
 				.col-sm-9.col-md-5: .form-row
 					.col-sm-6: input(type='text', name=field.paths.geo, value=item.get(field.path + '.geo') ? item.get(field.path + '.geo')[0] : '', placeholder='Longitude').form-control
 					.col-sm-6: input(type='text', name=field.paths.geo, value=item.get(field.path + '.geo') ? item.get(field.path + '.geo')[1] : '', placeholder='Latitude').form-control
