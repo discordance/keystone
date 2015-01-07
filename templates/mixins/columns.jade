@@ -42,7 +42,6 @@ mixin column(list, col, item)
 			
 mixin column_id(value, href)
 	if value
-	// short id
 		- var str = value.toString()
 		- value = str.substr(str.length - 7)
 		a(href=href)= value
