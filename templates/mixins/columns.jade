@@ -25,7 +25,10 @@ mixin column(list, col, item)
 	else
 		- var value = col.field ? col.field.format(item) : item.get(col.path)
 		if col.isName
-			+column_link(value || '(no name)', '/keystone/' + list.path + '/' + item.id)
+			if col.path == '_id'
+				+column_id(value, '/keystone/' + list.path + '/' + item.id)
+			else
+				+column_link(value || '(no name)', '/keystone/' + list.path + '/' + item.id)
 		else if col.type == 'email'
 			if value && col.field.options.displayGravatar
 				+column_gravatar(col.field.gravatarUrl(item,35))
@@ -36,7 +39,14 @@ mixin column(list, col, item)
 			+column_link(value, value, true)
 		else
 			+column_basic(value)
-
+			
+mixin column_id(value, href)
+	if value
+	// short id
+		- var str = value.toString()
+		- value = str.substr(str.length - 7)
+		a(href=href)= value
+		
 mixin column_link(value, href, newWindow)
 	if value
 		a(href=href, target=newWindow ? '_blank' : undefined)= value
