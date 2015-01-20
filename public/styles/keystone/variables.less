@@ -18,7 +18,7 @@
 // Brand colors
 // -------------------------
 
-@brand-primary:         #ffb954;
+@brand-primary:         #428bca;
 @brand-success:         #5cb85c;
 @brand-warning:         #f0ad4e;
 @brand-danger:          #d9534f;
@@ -33,15 +33,27 @@
 // Links
 // -------------------------
 
-@link-color:            #ffb954;
-@link-hover-color:      lighten(@link-color, 10%);
+@link-color:            @brand-primary;
+@link-hover-color:      darken(@link-color, 15%);
 
+// Typography
+// -------------------------
 
+@font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family-serif:       Georgia, "Times New Roman", Times, serif;
+@font-family-monospace:   Monaco, Menlo, Consolas, "Courier New", monospace;
+@font-family-base:        @font-family-sans-serif;
 
+@font-size-base:          14px;
+@font-size-large:         ceil(@font-size-base * 1.25); // ~18px
+@font-size-small:         ceil(@font-size-base * 0.85); // ~12px
 
-// Type
-// ------------------------------
+@line-height-base:        1.428571429; // 20/14
+@line-height-computed:    floor(@font-size-base * @line-height-base); // ~20px
 
+@headings-font-family:    @font-family-base;
+@headings-font-weight:    500;
+@headings-line-height:    1.1;
 
 // Iconography
 // -------------------------
@@ -55,10 +67,10 @@
 // Based on 14px font-size and 1.428 line-height (~20px to start)
 
 @padding-base-vertical:          6px;
-@padding-base-horizontal:        10px;
+@padding-base-horizontal:        12px;
 
-@padding-large-vertical:         8px;
-@padding-large-horizontal:       12px;
+@padding-large-vertical:         10px;
+@padding-large-horizontal:       16px;
 
 @padding-small-vertical:         5px;
 @padding-small-horizontal:       10px;
@@ -99,7 +111,7 @@
 @btn-default-border:             #ccc;
 
 @btn-primary-color:              #fff;
-@btn-primary-bg:                 @link-color;
+@btn-primary-bg:                 @brand-primary;
 @btn-primary-border:             darken(@btn-primary-bg, 5%);
 
 @btn-success-color:              #fff;
@@ -125,12 +137,12 @@
 // -------------------------
 
 @input-bg:                       #fff;
-@input-bg-disabled:              #fafafa;
+@input-bg-disabled:              @gray-lighter;
 
-@input-color:                    @text-color;
+@input-color:                    @gray;
 @input-border:                   #ccc;
-@input-border-radius:            @border-radius-small;
-@input-border-focus:             @link-color;
+@input-border-radius:            @border-radius-base;
+@input-border-focus:             #66afe9;
 
 @input-color-placeholder:        @gray-light;
 
@@ -153,11 +165,11 @@
 @dropdown-fallback-border:       #ccc;
 @dropdown-divider-bg:            #e5e5e5;
 
-@dropdown-link-active-color:     @gray-dark;
-@dropdown-link-active-bg:        mix(@link-color, white, 10%);
+@dropdown-link-active-color:     #fff;
+@dropdown-link-active-bg:        @component-active-bg;
 
 @dropdown-link-color:            @gray-dark;
-@dropdown-link-hover-color:      @gray-dark;
+@dropdown-link-hover-color:      #fff;
 @dropdown-link-hover-bg:         @dropdown-link-active-bg;
 
 @dropdown-link-disabled-color:   @gray-light;
@@ -169,9 +181,6 @@
 
 // COMPONENT VARIABLES
 // --------------------------------------------------
-
-// for UI select and table sorting
-@comboarrow-size: 4px;
 
 
 // Z-index master list
@@ -230,7 +239,7 @@
 @navbar-height:                    50px;
 @navbar-margin-bottom:             @line-height-computed;
 @navbar-default-color:             #777;
-@navbar-default-bg:                #f8f8f8;
+@navbar-default-bg:                #363636;
 @navbar-default-border:            darken(@navbar-default-bg, 6.5%);
 @navbar-border-radius:             @border-radius-base;
 @navbar-padding-horizontal:        floor(@grid-gutter-width / 2);
@@ -251,9 +260,9 @@
 @navbar-default-brand-hover-bg:            transparent;
 
 // Navbar toggle
-@navbar-default-toggle-hover-bg:           #eee;
+@navbar-default-toggle-hover-bg:           #ddd;
 @navbar-default-toggle-icon-bar-bg:        #ccc;
-@navbar-default-toggle-border-color:       transparent;
+@navbar-default-toggle-border-color:       #ddd;
 
 
 // Inverted navbar
@@ -327,8 +336,8 @@
 
 @pagination-hover-bg:                  @gray-lighter;
 
-@pagination-active-bg:                 #fff;
-@pagination-active-color:              @gray-light;
+@pagination-active-bg:                 @brand-primary;
+@pagination-active-color:              #fff;
 
 @pagination-disabled-color:            @gray-light;
 
@@ -353,21 +362,21 @@
 // Form states and alerts
 // -------------------------
 
-@state-warning-text:             #ab775b;
-@state-warning-bg:               #fffff4;
-@state-warning-border:           #f1d9b3;
+@state-warning-text:             #c09853;
+@state-warning-bg:               #fcf8e3;
+@state-warning-border:           darken(spin(@state-warning-bg, -10), 3%);
 
-@state-danger-text:              #bf2525;
-@state-danger-bg:                #fdf4f4;
-@state-danger-border:            #f2b8b8;
+@state-danger-text:              #b94a48;
+@state-danger-bg:                #f2dede;
+@state-danger-border:            darken(spin(@state-danger-bg, -10), 3%);
 
-@state-success-text:             #0b851a;
-@state-success-bg:               #effdf0;
-@state-success-border:           #c8eecd;
+@state-success-text:             #468847;
+@state-success-bg:               #dff0d8;
+@state-success-border:           darken(spin(@state-success-bg, -10), 5%);
 
-@state-info-text:                #11709e;
-@state-info-bg:                  #eef7fb;
-@state-info-border:              #a4c9dc;
+@state-info-text:                #3a87ad;
+@state-info-bg:                  #d9edf7;
+@state-info-border:              darken(spin(@state-info-bg, -10), 7%);
 
 
 // Tooltips
