@@ -189,11 +189,11 @@ exports = module.exports = function(req, res) {
 			}
 
 			var id = req.body.id || req.query.id;
-			
+
 			if (id === req.user.id) {
 				return sendError('You can not delete yourself');
 			}
-			
+
 			req.list.model.findById(id).exec(function (err, item) {
 
 				if (err) return sendError('database error', err);
@@ -213,11 +213,11 @@ exports = module.exports = function(req, res) {
 		break;
 
 		case 'fetch':
-		
+
 			if (!keystone.security.csrf.validate(req)) {
 				return sendError('invalid csrf');
 			}
-			
+
 			(function() {
 
 				var queryFilters = req.list.getSearchFilters(req.query.search, req.query.filters),
@@ -262,7 +262,7 @@ exports = module.exports = function(req, res) {
 						count: 1
 					});
 				});
-			
+
 			})();
 
 		break;
