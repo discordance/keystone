@@ -17,7 +17,7 @@ mixin column(list, col, item)
 				if col.refList && refData && refData.id
 					+column_link(value, '/keystone/' + col.refList.path + '/' + refData.id)
 				else
-					+column_basic(value)
+					+column_basic(value) 
 	else if col.type == 'markdown'
 		+column_html(utils.textToHTML(utils.cropString(item.get(col.field.paths.md), 200, '...', true)))
 	else if col.type == 'html'
@@ -37,6 +37,8 @@ mixin column(list, col, item)
 			+column_boolean(value)
 		else if col.type == 'url'
 			+column_link(value, value, true)
+		else if col.path == 'id'
+			+column_link(value, '/keystone/' + list.path + '/' + item.id)
 		else
 			+column_basic(value)
 			
